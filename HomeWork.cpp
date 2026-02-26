@@ -1,69 +1,36 @@
 ﻿#include <iostream>
+#include <string>
+#include <windows.h>
 
 int main() {
-    std::cout << std::boolalpha; // вывод true||false
-    setlocale(LC_ALL, "RU");
-    bool Meaning1, Meaning2, result1;
-    std::cout << "ЗАДАНИЕ 1 НА ВЫВОД ТАБЛИЦЫ ИСТИННОСТИ" << std::endl;
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    std::cout << "ЗАДАНИЕ №1" << std::endl;
+    int number1, result1 = 0;
+    do{
+        std::cout << "Введите целое число или число '0', чтобы закончить: " << std::endl;
+        std::cin >> number1;
+        result1 += number1;
+    } while (number1 != 0);
+    std::cout << "Сумма чисел: "<< result1 << std::endl;
 
-    std::cout << "Оператор: ||" << std::endl;
-    Meaning1 = true;  Meaning2 = true;
-    result1 = (Meaning1 || Meaning2) ? true : false;
-    std::cout << Meaning1 << "\t" << Meaning2 << "\t" << result1 << std::endl;
+    std::cout << "ЗАДАНИЕ №2" << std::endl;
+    int number2, result2 = 0;
+    std::cout << "Введите целое число: " << std::endl;
+    std::cin >> number2;
+    do {
+        result2 += number2 % 10;
+        number2 = number2 / 10;
+    } while (number2 != 0);
+    std::cout << "Сумма цифр: " << result2 << std::endl;
 
-    Meaning1 = false; Meaning2 = true;
-    result1 = (Meaning1 || Meaning2) ? true : false;
-    std::cout << Meaning1 << "\t" << Meaning2 << "\t" << result1 << std::endl;
-
-    Meaning1 = true;  Meaning2 = false;
-    result1 = (Meaning1 || Meaning2) ? true : false;
-    std::cout << Meaning1 << "\t" << Meaning2 << "\t" << result1 << std::endl;
-
-    Meaning1 = false; Meaning2 = false;
-    result1 = (Meaning1 || Meaning2) ? true : false;
-    std::cout << Meaning1 << "\t" << Meaning2 << "\t" << result1 << std::endl;
-
-    std::cout << "\nОператор: &&" << std::endl;
-    Meaning1 = true;  Meaning2 = true;
-    result1 = (Meaning1 && Meaning2) ? true : false;
-    std::cout << Meaning1 << "\t" << Meaning2 << "\t" << result1 << std::endl;
-
-    Meaning1 = false; Meaning2 = true;
-    result1 = (Meaning1 && Meaning2) ? true : false;
-    std::cout << Meaning1 << "\t" << Meaning2 << "\t" << result1 << std::endl;
-
-    Meaning1 = true;  Meaning2 = false;
-    result1 = (Meaning1 && Meaning2) ? true : false;
-    std::cout << Meaning1 << "\t" << Meaning2 << "\t" << result1 << std::endl;
-
-    Meaning1 = false; Meaning2 = false;
-    result1 = (Meaning1 && Meaning2) ? true : false;
-    std::cout << Meaning1 << "\t" << Meaning2 << "\t" << result1 << std::endl << std::endl;
-
-    std::cout << "ЗАДАНИЕ 2 НА УПОРЯДОВАЧИВАНИЕ ЧИСЕЛ" << std::endl;
-
-    int number1, number2, number3, answer1, answer2, answer3;
-    std::cout << "Введите первое число: "; std::cin >> number1;
-    std::cout << "Введите второе число: "; std::cin >> number2;
-    std::cout << "Введите третье число: "; std::cin >> number3;
-
-    answer1 = number1 > number2
-        ? number1 > number3
-        ? number1 : number3
-        : number2 > number3
-        ? number2 : number3;
-
-    answer2 =
-        ((number1 >= number2 && number1 <= number3) || (number1 >= number3 && number1 <= number2))
-        ? number1 : ((number2 >= number1 && number2 <= number3) || (number2 <= number1 && number2 >= number3))
-        ? number2 : number3;
-
-    answer3 = number1 < number2
-        ? number1 < number3
-        ? number1 : number3
-        : number2 < number3
-        ? number2 : number3;
-
-    std::cout << answer1 << "\t" << answer2 << "\t" << answer3 << std::endl;
+    std::cout << "ЗАДАНИЕ №3" << std::endl;
+    int number3, result3 = 0;
+    std::cout << "Введите целое число:\n";
+    std::cin >> number3;
+    for (int i = 1; i <= 10; i++) {
+        result3 = i * number3;
+        std::cout << number3 << " x " << i << " = " << result3 << std::endl;
+    }
     return 0;
 }
