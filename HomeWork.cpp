@@ -10,7 +10,7 @@ int main() {
     int array1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     for (int i = 0; i < 10; i++) {
         std::cout << array1[i];
-        if (array1[i] != 10) {
+        if (i < 9) {
             std::cout << ", ";
         }
     }
@@ -32,8 +32,8 @@ int main() {
 
     std::cout << "ЗАДАНИЕ №3" << std::endl;
     int array3[3][6] = { {1, 2, 3, 4, 5, 6}, {7, 8, 99, 9, 10, 11}, { 0, 12, 13, 14 ,15, 16 } };
-    int rows = 3; int indexRowsMax, indexRowsMin;
-    int coloums = 6; int indexColoumsMax, indexColoumsMin;
+    int rows = 3; int indexRowsMax = 0, int indexRowsMin = 0;
+    int coloums = 6; int indexColoumsMax = 0, int indexColoumsMin = 0;
     int Min = array3[0][0]; int Max = array3[0][0];
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < coloums; j++) {
@@ -48,7 +48,7 @@ int main() {
 
     std::cout << "ЗАДАНИЕ №4" << std::endl;
     int array4[10] = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int Row = 10;
+    int Passes = 10;
     int temp = 0;
     std::cout << "Массив до сортировки:";
     for (int i = 0; i < 10; i++) { std::cout << array4[i] << " "; }
@@ -61,8 +61,8 @@ int main() {
                 array4[i] = temp;
             }
         }
-        Row--;
-    } while (Row >= 1);
+        Passes--;
+    } while (Passes >= 1);
     std::cout << "Массив после сортировки: ";
     for (int number : array4) { std::cout << number << " "; }
     return 0;
