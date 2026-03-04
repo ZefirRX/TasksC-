@@ -1,69 +1,53 @@
 ﻿#include <iostream>
-#include <string>
-#include <windows.h>
+
+int sum(int a, int b) { int s = a + b; return s; }
+int diff(int a, int b) { int dif = a - b; return dif; }
+int multiplication(int a, int b) { int mult = a * b; return mult; }
+double  division(int a, int b) { double div = a / b; return div; }
+
+void Pow(int value, int power, int result) {
+	for (int i = 0; i < power; i++) {
+		result *= value;
+	}
+	std::cout << value << " в степени " << power << " = " << result << std::endl;
+}
+
+int Fibbonacci(int num) {
+	if (num == 0) return 0;
+	else if (num == 1) return 1;
+	else return Fibbonacci(num - 1) + Fibbonacci(num - 2);
+} 
 
 int main() {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+	setlocale(LC_ALL, "RU");
 
-    std::cout << "ЗАДАНИЕ №1" << std::endl;
-    int array1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    for (int i = 0; i < 10; i++) {
-        std::cout << array1[i];
-        if (i < 9) {
-            std::cout << ", ";
-        }
-    }
-    std::cout<<std::endl;
+	std::cout << "Task1" << std::endl;
 
-    std::cout << "ЗАДАНИЕ №2" << std::endl;
-    int max1, min1;
-    int array2[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    max1 = array2[0];
-    min1 = array2[0];
-    std::cout << "Массив: ";
-    for (int i = 0; i < 10; i++) {
-        std::cout << array2[i] << " ";
-        if (array2[i] < min1) { min1 = array2[i]; }
-        if (array2[i] > max1) { max1 = array2[i]; }
-    }
-    std::cout << std::endl << "Минимальный элемент: " << min1 << std::endl 
-              << "Максимальный элемент: " << max1 << std::endl;
+	int a = 5, b = 10;
+	int s = sum(a, b);
+	int dif = diff(a, b);
+	int mult = multiplication(a, b);
+	double div = division(a, b);
+	std::cout << a << " + " << b << " = " << s << std::endl;
+	std::cout << a << " - " << b << " = " << dif << std::endl;
+	std::cout << a << " * " << b << " = " << mult << std::endl;
+	std::cout << a << " / " << b << " = " << div << std::endl;
 
-    std::cout << "ЗАДАНИЕ №3" << std::endl;
-    int array3[3][6] = { {1, 2, 3, 4, 5, 6}, {7, 8, 99, 9, 10, 11}, { 0, 12, 13, 14 ,15, 16 } };
-    int rows = 3; int indexRowsMax = 0, int indexRowsMin = 0;
-    int coloums = 6; int indexColoumsMax = 0, int indexColoumsMin = 0;
-    int Min = array3[0][0]; int Max = array3[0][0];
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < coloums; j++) {
-            std::cout << array3[i][j] << "\t";
-            if (Min > array3[i][j]) { indexRowsMin = i; indexColoumsMin = j; Min = array3[i][j]; }
-            if (Max < array3[i][j]) { indexRowsMax = i; indexColoumsMax = j; Max = array3[i][j]; }
-        }
-        std::cout << std::endl;
-    }
-    std::cout << "Индекс минимального элемента: " << indexRowsMin << " " << indexColoumsMin<< std::endl 
-              << "Индекс максимального элемента: " << indexRowsMax << " " << indexColoumsMax << std::endl;
+	std::cout << "Task2" << std::endl;
+	int value = 5, power = 2, result = 1;
+	Pow(value, power, result);
+	value = 3; power = 3; result = 1;
+	Pow(value, power, result);
+	value = 4; power = 4; result = 1;
+	Pow(value, power, result);
 
-    std::cout << "ЗАДАНИЕ №4" << std::endl;
-    int array4[10] = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int Passes = 10;
-    int temp = 0;
-    std::cout << "Массив до сортировки:";
-    for (int i = 0; i < 10; i++) { std::cout << array4[i] << " "; }
-    std::cout << std::endl;
-    do {
-        for (int i = 9; i > 0; i--) {
-            if (array4[i] < array4[i-1]) {
-                temp = array4[i - 1];
-                array4[i - 1] = array4[i];
-                array4[i] = temp;
-            }
-        }
-        Passes--;
-    } while (Passes >= 1);
-    std::cout << "Массив после сортировки: ";
-    for (int number : array4) { std::cout << number << " "; }
-    return 0;
+	std::cout << "Task3" << std::endl;
+	int FibonacciNums;
+	std::cout << "Введите число: ";
+	std::cin >> FibonacciNums;
+	std::cout << "Числа Фибоначчи: ";
+	for (int num = 0; num < FibonacciNums; num++) {
+		std::cout << Fibbonacci(num) << " ";
+	}
+	return 0;
 }
