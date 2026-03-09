@@ -1,10 +1,10 @@
-﻿#include <iostream>
+﻿﻿#include <iostream>
 
 int Fibbonacci(int num) {
 	if (num == 0) return 0;
 	else if (num == 1) return 1;
 	else return Fibbonacci(num - 1) + Fibbonacci(num - 2);
-} 
+}
 
 int main() {
 	setlocale(LC_ALL, "RU");
