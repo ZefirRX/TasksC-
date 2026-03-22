@@ -10,12 +10,12 @@ int main() {
     double* array = create_array(size);
     std::cout << "Массив: ";
     for (int i = 0; i < size; i++) {
-        std::cout << array[i] << "0";
+        std::cout << array[i] << " ";
     }
-    free(array);
+    delete[] array;
 }
 
 double* create_array(int size) {
-    double* arr = static_cast<double*>(calloc(size, sizeof(double)));
+    double* arr = new double[size]();
     return arr;
 }
