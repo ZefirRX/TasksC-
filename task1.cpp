@@ -21,7 +21,7 @@ public:
 int main() {
     std::ifstream fin("in.txt");
     if (!fin.is_open()) {
-        std::cerr << "Cannot open in.txt" << std::endl;
+        std::cerr << "Файл не открыт" << std::endl;
         return 1;
     }
 
@@ -45,7 +45,7 @@ int main() {
 
     std::ofstream fout("out.txt");
     if (!fout.is_open()) {
-        std::cerr << "Cannot open out.txt" << std::endl;
+        std::cerr << "Файл не открыт" << std::endl;
         return 1;
     }
 
